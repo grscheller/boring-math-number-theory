@@ -14,7 +14,7 @@ See [Semantic Versioning 2.0.0](https://semver.org).
 
 ## Releases and other important milestones
 
-### Update - 2025-10-09
+### PyPI Release v2.0.0 - 2025-10-09
 
 Created new repo for boring-math-number-theory instead of
 renaming boring-math-integer-math and re-purposing it.
