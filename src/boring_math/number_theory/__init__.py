@@ -12,9 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Number Theory Library
+"""
+Number Theory Library
+---------------------
 
-Collection of integer related functions useful in number theory.
+.. admonition:: Elementary Number Theory
+
+    Collection of integer related functions useful in number theory.
 
 """
 
