@@ -14,7 +14,6 @@
 
 """
 Number Theory Library
----------------------
 
 .. admonition:: Elementary Number Theory
 
