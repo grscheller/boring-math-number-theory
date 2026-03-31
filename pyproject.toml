@@ -28,7 +28,7 @@ dynamic = ["description"]
 
 [project.urls]
 Changelog = "https://github.com/grscheller/boring-math-number-theory/blob/main/CHANGELOG.md"
-Documentation = "https://grscheller.github.io/boring-math/number_theory/development/build/html"
+Documentation = "https://grscheller.github.io/boring-math/number-theory/development/build/html"
 Homepage = "https://grscheller.github.io/boring-math"
 Source = "https://github.com/grscheller/boring-math-number-theory"
 
