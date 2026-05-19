@@ -16,10 +16,10 @@ Documentation
 
 Documentation for this project is hosted on
 `GitHub Pages
-<https://grscheller.github.io/boring-math/number-theory>`_.
+<https://grscheller.github.io/boring-math/homepage/build/html/projects/number_theory.html>`_.
 
 Copyright and License
 ---------------------
 
-Copyright (c) 2023-2025 Geoffrey R. Scheller. Licensed under the Apache
+Copyright (c) 2023-2026 Geoffrey R. Scheller. Licensed under the Apache
 License, Version 2.0. See the LICENSE file for details.
