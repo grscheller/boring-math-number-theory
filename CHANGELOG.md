@@ -14,6 +14,13 @@ See [Semantic Versioning 2.0.0](https://semver.org).
 
 ## Releases and other important milestones
 
+### PyPI Release v2.0.1 - 2026-05-19
+
+Redid documentation along the lines of Pythonic FP.
+
+- documentation now in "maintenance mode"
+- last release and development docs auto-generated on GH-Pages.
+
 ### PyPI Release v2.0.0 - 2025-10-09
 
 Created new repo for boring-math-number-theory instead of

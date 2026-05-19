@@ -13,8 +13,8 @@
 # limitations under the License.
 
 """
-Number Theory Library
----------------------
+Number Theory Functions
+=======================
 
 .. admonition:: Elementary Number Theory
 
@@ -43,18 +43,24 @@ __all__ = [
 
 
 def gcd(m: int, n: int, /) -> int:
-    """Uses Euclidean algorithm to compute the gcd of two integers.
+    """
+    .. admonition:: gcd - greatest common divisor
 
-    .. note::
-        - mathematically the gcd of 0 and 0 does not exist
-        - taking ``gcd(0, 0) = 1`` is a better choice than ``math.gcd(0, 0) = 0``
+        Uses Euclidean algorithm to compute the gcd of two integers.
 
-            - eliminates lcm & coprime functions having to edge case test
-            - also ``gcd(0, 0)`` returning 1 instead of 0 more mathematically justified
+        :param m: First int for gcd calculation.
+        :param n: Second int for gcd calculation.
+        :returns: The gcd of the absolute values of m and n.
 
-    :param m: first int for gcd calculation
-    :param n: second int for gcd calculation
-    :returns: gcd of the absolute values of ``m`` and ``n``
+        .. note::
+
+            - mathematically the gcd of 0 and 0 does not exist
+
+              - taking ``gcd(0, 0) = 1``
+
+                - Better choice than ``math.gcd(0, 0) = 0``.
+                - More mathematically justifieda.
+                - Eliminates lcm & coprime having to edge case test.
 
     """
     if 0 == m == n:
@@ -66,11 +72,14 @@ def gcd(m: int, n: int, /) -> int:
 
 
 def lcm(m: int, n: int, /) -> int:
-    """Find the least common multiple (lcm) of two integers.
+    """
+    .. admonition:: lcm - least common multiple
 
-    :param m: first int for lcm calculation
-    :param n: second int for lcm calculation
-    :returns: lcm of the absolute values of ``m`` and ``n``
+        Find the least common multiple (lcm) of two integers.
+
+        :param m: First int for lcm calculation.
+        :param n: Second int for lcm calculation.
+        :returns: The lcm of the absolute values of m and n.
 
     """
     m //= gcd(m, n)
@@ -78,11 +87,15 @@ def lcm(m: int, n: int, /) -> int:
 
 
 def coprime(m: int, n: int, /) -> tuple[int, int]:
-    """Makes 2 integers coprime by dividing out their common factors.
+    """
+    .. admonition:: coprime
 
-    :param m: first int for coprime calculation
-    :param n: second int for coprime calculation
-    :returns: coprimed values with original signs, ``(0, 0)`` when ``n = m = 0``
+        Make 2 integers coprime by dividing out their common factors.
+
+        :param m: First int for coprime calculation.
+        :param n: Second int for coprime calculation.
+        :returns: The coprimed values with original signs,
+                  also ``(0, 0)`` when ``n = m = 0``.
 
     """
     common = gcd(m, n)
@@ -90,11 +103,14 @@ def coprime(m: int, n: int, /) -> tuple[int, int]:
 
 
 def iSqrt(n: int, /) -> int:
-    """Integer square root of a non-negative integer.
+    """
+    .. admonition:: iSqrt - integer square root
 
-    :param n: integer whose integer square root is to be found
-    :returns: the unique ``m`` such that ``m*m <= n < (m+1)*(m+1)``
-    :raises ValueError: if ``n < 0``
+        Takes the integer square root of a non-negative integer.
+
+        :param n: Integer whose integer square root is to be found.
+        :returns: The unique ``m`` such that ``m*m <= n < (m+1)*(m+1)``
+        :raises ValueError: if ``n < 0``.
 
     """
     if n < 0:
@@ -109,26 +125,32 @@ def iSqrt(n: int, /) -> int:
 
 
 def isSqr(n: int, /) -> bool:
-    """Determine if argument is a perfect square.
+    """
+    .. admonition:: isSqr
 
-    :param n: integer to check
-    :returns: true only if integer argument is a perfect square
+        Determine if argument is a perfect square.
+
+        :param n: Integer to check.
+        :returns: True only if integer argument is a perfect square.
 
     """
     return False if n < 0 else n == iSqrt(n) ** 2
 
 
 def legendre_symbol(a: int, p: int) -> int:
-    """Calculate the Legendre Symbol ``(a/p)`` where p is an odd prime.
+    """
+    .. admonition:: Legendre symbol
 
-    .. note::
+        Calculate the Legendre Symbol (a/p) where p is an odd prime.
 
-        See https://en.wikipedia.org/wiki/Legendre_symbol
+        :param a: any integer
+        :param p: any prime ``p > 2``, does not check that ``p`` is actually prime
+        :returns: the Legendre Symbol ``(a/p) ∈ {-1, 0, 1}``
+        :raises ValueError: if ``abs(p) < 3``
 
-    :param a: any integer
-    :param p: any prime ``p > 2``, does not check that ``p`` is actually prime
-    :returns: the Legendre Symbol ``(a/p) ∈ {-1, 0, 1}``
-    :raises ValueError: if ``abs(p) < 3``
+        .. note::
+
+            See https://en.wikipedia.org/wiki/Legendre_symbol
 
     """
     p = abs(p)
@@ -147,16 +169,19 @@ def legendre_symbol(a: int, p: int) -> int:
 
 
 def jacobi_symbol(a: int, n: int) -> int:
-    """Calculate the Jacobi Symbol ``(a/n)``.
+    """
+    .. admonition:: Jacobe symbol
 
-    .. note::
+        Calculate the Jacobi symbol (a/n).
 
-        See https://en.wikipedia.org/wiki/Jacobi_symbol
+        :param a: Any integer.
+        :param n: Any positive odd integer.
+        :returns: The Jacobi Symbol ``(a/n) ∈ {-1, 0, 1}``.
+        :raises ValueError: If n is not a positive odd integer.
 
-    :param a: any integer
-    :param n: any positive odd integer
-    :returns: the Jacobi Symbol ``(a/p) ∈ {-1, 0, 1}``
-    :raises ValueError: if ``n`` is not a positive odd integer
+        .. note::
+
+            See https://en.wikipedia.org/wiki/Jacobi_symbol
 
     """
     if n <= 0 or n % 2 == 0:
@@ -183,15 +208,18 @@ def jacobi_symbol(a: int, n: int) -> int:
 
 
 def primes_wilson(start: int = 2) -> Iterator[int]:
-    """Prime number generation using Wilson's Theorem.
+    """
+    .. admonition:: primes via Wilson's theorem
 
-    .. note::
+        Prime number generation using Wilson's Theorem.
 
-        Wilson's Theorem:
-        ``∀(n>1)``, ``n`` is prime if and only if ``(n-1)! % n ≡ -1``
+        :param start: First value to check, defaults to 2.
+        :yields: Prime numbers tarting from n.
 
-    :param start: first value to check, defaults to 2
-    :returns: an infinite iterator of prime numbers
+        .. note::
+
+            **Wilson's Theorem:**
+            ``∀(n>1) n is prime if and only if (n-1)! % n ≡ -1``
 
     """
     if start < 2:
@@ -208,11 +236,14 @@ def primes_wilson(start: int = 2) -> Iterator[int]:
 
 
 def primes_capped(start: int, end: int) -> Iterator[int]:
-    """Yield all primes ```p``` where ``start <= p <= end``.
+    """
+    .. admonition:: primes capped
 
-    :param start: first value to check
-    :param start: last value to check
-    :returns: an iterator of all primes ``p`` where ``start <= p <= end``.
+        Generate all primes ``start <= p <= end``.
+
+        :param start: First value to check.
+        :param start: Last value to check.
+        :yields: All primes p where ``start <= p <= end``.
 
     """
     for ii in primes_wilson(start):
@@ -226,14 +257,18 @@ def primes_capped(start: int, end: int) -> Iterator[int]:
 
 
 def primes(start: int = 2, end: int | None = None) -> Iterator[int]:
-    """Yield all primes ``p`` where ``start <= p <= end``.
+    """
+    .. admonition:: primes
 
-    .. warning::
+        Generate all primes p where start <= p <= end.
 
-        If ``end`` is not given, returned iterator is infinite.
+        :param start: First value to check, defaults to 2.
+        :param end: Optional last value to check.
+        :yields: All primes between start and end inclusive.
 
-    :param start: first value to check, defaults to 2
-    :returns: an iterator of all primes ``p`` where ``start <= p <= end``
+        .. warning::
+
+            If end is not given, returned iterator is infinite.
 
     """
     if end is None:
@@ -243,10 +278,13 @@ def primes(start: int = 2, end: int | None = None) -> Iterator[int]:
 
 
 def is_prime(n: int, /) -> bool:
-    """Test if argument is a prime number, uses Wilson's Theorem.
+    """
+    .. admonition:: is prime
 
-    :param n: integer to check if prime
-    :returns: true only if ``n`` is prime
+        Test if argument is a prime number, uses Wilson's Theorem.
+
+        :param n: Integer to check if prime.
+        :returns: True only if n is prime.
 
     """
     _factors:Final[int]=2*3*5*7*11*13*17
