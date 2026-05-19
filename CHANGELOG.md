@@ -20,6 +20,7 @@ Redid documentation along the lines of Pythonic FP.
 
 - documentation now in "maintenance mode"
 - last release and development docs auto-generated on GH-Pages.
+  - github actions are succeeding but pages are missing on gh-pages???
 
 ### PyPI Release v2.0.0 - 2025-10-09
 
