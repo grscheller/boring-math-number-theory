@@ -14,7 +14,7 @@ See [Semantic Versioning 2.0.0](https://semver.org).
 
 ## Releases and other important milestones
 
-### PyPI Release v2.0.2 - 2026-05-19
+### PyPI Release v2.0.3 - 2026-05-19
 
 Redid documentation along the lines of Pythonic FP.
 

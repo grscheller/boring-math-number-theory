@@ -4,7 +4,7 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = "boring-math-number-theory"
-version = "2.0.2"
+version = "2.0.3"
 readme = "README.rst"
 requires-python = ">=3.13"
 license = { file = "LICENSE" }
@@ -34,7 +34,7 @@ dynamic = ["description"]
 
 [project.urls]
 Changelog = "https://github.com/grscheller/boring-math-number-theory/blob/main/CHANGELOG.md"
-Documentation = "https://grscheller.github.io/boring-math/homepage/build/html/projects/probability_distributions.html"
+Documentation = "https://grscheller.github.io/boring-math/homepage/build/html/projects/number_theory.html"
 Homepage = "https://grscheller.github.io/boring-math/"
 Source = "https://github.com/grscheller/boring-math-number-theory"
 
