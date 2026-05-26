@@ -18,7 +18,6 @@ if num_args == 4:
     pypi_project_repo = pypi_prefix + '-' + pypi_name
     project_url_rst = f'`{project} <https://pypi.org/project/{pypi_project_repo}/>`_'
     homepage_url_rst = f'`{project_prefix} <https://grscheller.github.io/{pypi_prefix}/>`_'
-
 else:
     sys.exit('Error: gen_conf.py takes exactly 4 arguments')
 

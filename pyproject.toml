@@ -4,10 +4,9 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = "boring-math-number-theory"
-version = "2.0.3"
+version = "2.0.4"
 readme = "README.rst"
 requires-python = ">=3.13"
-license = { file = "LICENSE" }
 authors = [
   { name = "Geoffrey R. Scheller", email = "geoffrey@scheller.com" },
 ]
@@ -30,7 +29,7 @@ dependencies = [
   "pythonic-fp-circulararray>=6.1.1",
   "pythonic-fp-iterables>=5.1.4",
 ]
-dynamic = ["description"]
+description = "Number theory library"
 
 [project.urls]
 Changelog = "https://github.com/grscheller/boring-math-number-theory/blob/main/CHANGELOG.md"
