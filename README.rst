@@ -16,7 +16,7 @@ Documentation
 
 Documentation for this project is hosted on
 `GitHub Pages
-<https://grscheller.github.io/boring-math/homepage/build/html/projects/number_theory.html>`_.
+<https://grscheller.github.io/boring-math-number-theory/development/html/>`_.
 
 Copyright and License
 ---------------------
