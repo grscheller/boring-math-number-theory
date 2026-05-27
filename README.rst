@@ -5,7 +5,7 @@ PyPI project
 `boring-math-number-theory
 <https://pypi.org/project/boring-math-number-theory>`_.
 
-Python module implementing a number theory library.
+Beginnings of a number theory library.
 
 This PyPI project is part of the
 `Boring Math
