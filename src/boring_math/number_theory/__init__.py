@@ -13,12 +13,27 @@
 # limitations under the License.
 
 """
-Number Theory
-=============
-
 .. admonition:: Elementary Number Theory
 
     Collection of integer related functions useful in number theory.
+
+    - elementary functions
+
+      - **gcd(m, n)**: find greatest common denominator of m and n
+      - **lcm(m, n)**: find least common multiple of m and n
+      - **coprime(m, n)**: return tuple without common factors, preserve signs
+      - **iSqrt(n)**: find unique m such that m*m <= n < (m+1)*(m+1)
+      - **isSqr(n)**: true if n is a perfect square
+
+    - symbols
+
+      - **legendre_symbol(a, p)**: Legendre symbol (a/p) ∈ {-1, 0, 1} where p odd prime
+      - **jacobi_symbol(a, n)**: Jacobi symbol (a/n) ∈ {-1, 0, 1} where n positive odd integer
+
+    - prime functions & generators
+
+      - **is_prime(n)**: true if n is a prime number
+      - **primes(n, m)**: generate primes n <= p <= m where m is optional
 
 """
 
@@ -54,12 +69,12 @@ def gcd(m: int, n: int, /) -> int:
 
         .. note::
 
-            - mathematically the gcd of 0 and 0 does not exist
+            - mathematically the gcd(0, 0) does not exist
 
-              - taking ``gcd(0, 0) = 1``
+              - taking gcd(0, 0) = 1
 
-                - Better choice than ``math.gcd(0, 0) = 0``.
-                - More mathematically justifieda.
+                - Better choice than math.gcd(0, 0) = 0.
+                - More mathematically justified.
                 - Eliminates lcm & coprime having to edge case test.
 
     """
@@ -94,8 +109,8 @@ def coprime(m: int, n: int, /) -> tuple[int, int]:
 
         :param m: First int for coprime calculation.
         :param n: Second int for coprime calculation.
-        :returns: The coprimed values with original signs,
-                  also ``(0, 0)`` when ``n = m = 0``.
+        :returns: Coprimed values with original signs,
+                  also (0, 0) when n = m = 0.
 
     """
     common = gcd(m, n)
@@ -109,8 +124,8 @@ def iSqrt(n: int, /) -> int:
         Takes the integer square root of a non-negative integer.
 
         :param n: Integer whose integer square root is to be found.
-        :returns: The unique ``m`` such that ``m*m <= n < (m+1)*(m+1)``
-        :raises ValueError: if ``n < 0``.
+        :returns: The unique m such that m*m <= n < (m+1)*(m+1)
+        :raises ValueError: if n < 0.
 
     """
     if n < 0:
@@ -170,13 +185,13 @@ def legendre_symbol(a: int, p: int) -> int:
 
 def jacobi_symbol(a: int, n: int) -> int:
     """
-    .. admonition:: Jacobe symbol
+    .. admonition:: Jacobi symbol
 
-        Calculate the Jacobi symbol (a/n).
+        Calculate the Jacobi symbol (a/n) where n is a positive odd integer.
 
         :param a: Any integer.
         :param n: Any positive odd integer.
-        :returns: The Jacobi Symbol ``(a/n) ∈ {-1, 0, 1}``.
+        :returns: The Jacobi Symbol (a/n) ∈ {-1, 0, 1}.
         :raises ValueError: If n is not a positive odd integer.
 
         .. note::

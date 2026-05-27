@@ -1,21 +1,17 @@
-boring-math-number-theory
+boring_math.number_theory
 =========================
 
 .. toctree::
     :caption: Elementary
-    :maxdepth: 1
 
-    euclid
-    integer
+    elementary
 
 .. toctree::
     :caption: Symbols
-    :maxdepth: 1
 
     symbols
 
 .. toctree::
     :caption: Primes
-    :maxdepth: 1
 
     primes
