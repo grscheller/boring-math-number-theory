@@ -11,7 +11,7 @@ env:
   PYPI_NAME: 'number-theory'
   RELEASE_VERSION: '2.0.3'
   DEVEL_VERSION: '2.0.4'
-  PYTHON: '3.14'
+  PYTHON: '3.14.5'
 
 permissions:
   contents: read
