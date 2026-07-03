@@ -29,7 +29,7 @@ dependencies = [
   "pythonic-fp-circulararray>=6.1.1",
   "pythonic-fp-iterables>=5.1.4",
 ]
-description = "Number theory library"
+description = "Number theory library."
 
 [project.urls]
 Changelog = "https://github.com/grscheller/boring-math-number-theory/blob/main/CHANGELOG.md"
@@ -53,17 +53,8 @@ warn_redundant_casts = true
 warn_return_any = true
 warn_unused_configs = true
 
-[tool.pylsp-mypy]
-enabled = true
-live-mode = true
-dmypy = false
-strict = true
-report_progress = true
-
 [tool.pytest]
-addopts = [
-  "-ra",
-]
+addopts = ["-ra"]
 consider_namespace_packages = true
 testpaths = ["tests/"]
 
