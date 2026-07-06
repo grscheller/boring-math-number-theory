@@ -98,7 +98,19 @@ class Test_simple_ones:
         assert not is_prime(100)
         assert is_prime(101)
         assert not is_prime(111)
+        assert is_prime(2309)
+        assert is_prime(2311)
         assert not is_prime(11111)
+        assert is_prime(11113)
+        assert is_prime(22229)
+        assert is_prime(30029)
+        assert is_prime(30103)
+        assert not is_prime(233411)
+        assert is_prime(510457)
+        assert is_prime(510611)
+        assert not is_prime(111111111111111111)
+    #   assert is_prime(1111111111111111111)
+        assert not is_prime(11111111111111111111)
 
     def test_symbols(self) -> None:
         legendre3 = [0, 1, -1, 0, 1, -1, 0, 1, -1]

@@ -38,7 +38,7 @@
 """
 
 from collections.abc import Iterator
-from typing import Final
+from typing import cast, Final
 from pythonic_fp.circulararray.auto import CA
 from pythonic_fp.iterables.folding import fold_left
 
@@ -292,6 +292,15 @@ def primes(start: int = 2, end: int | None = None) -> Iterator[int]:
         return primes_capped(start, end)
 
 
+_prod13: Final[int] = 2 * 3 * 5 * 7 * 11 * 13
+_prod17: Final[int] = _prod13 * 17
+_prod19: Final[int] = _prod17 * 19
+_prod23: Final[int] = _prod19 * 23
+_fact13: int | None = None
+_fact17: int | None = None
+_fact19: int | None = None
+_fact23: int | None = None
+
 def is_prime(n: int, /) -> bool:
     """
     .. admonition:: is prime
@@ -302,28 +311,41 @@ def is_prime(n: int, /) -> bool:
         :returns: True only if n is prime.
 
     """
-    _factors:Final[int]=2*3*5*7*11*13*17
+    global _fact13
+    global _fact17
+    global _fact19
+    global _fact23
+
+    def mult(j: int, k: int) -> int:
+        return j * k
 
     if (n := abs(n)) < 2:
         return False
 
-    if n >= _factors:
-        if gcd(n, _factors) > 1:
-            return False
+    if n > 23 and gcd(n, _prod23) > 1:
+        return False
 
-    if n < _factors:
-        return (
-            fold_left(
-                range(2, n),
-                lambda j, k: j * k,
-                1,
-            ) % n == n - 1
-        )
+    if n >= _prod13:
+        if _fact13 is None:
+            _fact13 = fold_left(range(2, _prod13 + 1), mult, 1)
+        if n >= _prod17:
+            if _fact17 is None:
+                _fact17 = fold_left(range(_prod13 + 1, _prod17 + 1), mult, _fact13)
+            if n >= _prod19:
+                if _fact19 is None:
+                    _fact19 = fold_left(range(_prod17 + 1, _prod19 + 1), mult, _fact17)
+                if n >= _prod23:
+                    if _fact23 is None:
+                        _fact23 = fold_left(range(_prod19 + 1, _prod23 + 1), mult, _fact19)
+
+    if n < _prod13:
+        return fold_left(range(2, n), mult, 1) % n == n - 1
+    elif n < _prod17:
+        return fold_left(range(_prod13 + 1, n), mult, cast(int, _fact13)) % n == n - 1
+    elif n < _prod19:
+        return fold_left(range(_prod17 + 1, n), mult, cast(int, _fact17)) % n == n - 1
+    elif n < _prod23:
+        return fold_left(range(_prod19 + 1, n), mult, cast(int, _fact19)) % n == n - 1
     else:
-        return (
-            fold_left(
-                range(_factors, n),
-                lambda j, k: j * k,
-                _factors,
-            ) % n == n - 1
-        )
+        return fold_left(range(_prod23 + 1, n), mult, cast(int, _fact23)) % n == n - 1
+
