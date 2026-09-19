@@ -14,6 +14,13 @@ See [Semantic Versioning 2.0.0](https://semver.org).
 
 ## Releases and other important milestones
 
+### PyPI Release v2.1.1 - 2026-05-19
+
+Start of an effort to standardize the boring-math and the pythonic-fp
+documentation. This first step has brought boring-math-number-theory in
+sync with pythonic-fp-booleans. Then boring-math-number-theory will be
+used as an exemplar for the rest of the boring-math projects.
+
 ### PyPI Release v2.0.3 - 2026-05-19
 
 Redid documentation along the lines of Pythonic FP.

@@ -7,10 +7,10 @@ PyPI project
 This PyPI project is part of the
 [Boring Math](https://grscheller.github.io/boring-math) projects.
 
-## Documentation
+## Description
 
-Documentation and other links for this project are hosted on
-[GitHub Pages](https://grscheller.github.io/boring-math/projects/number_theory.html).
+A collection of integer related functions for number theory. The
+beginnings of a number theory library. Emphasizing first principles.
 
 ## Copyright and License
 

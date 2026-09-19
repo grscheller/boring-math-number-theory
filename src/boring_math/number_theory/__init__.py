@@ -13,9 +13,9 @@
 # limitations under the License.
 
 """
-.. admonition:: Elementary Number Theory
+.. admonition:: Number Theory Library
 
-    Collection of integer related functions useful in number theory.
+    Collection of integer related functions for number theory.
 
     - elementary functions
 
