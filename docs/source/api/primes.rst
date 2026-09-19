@@ -1,6 +1,8 @@
 Prime functions & generators
 ============================
 
+Functions involving prime numbers.
+
 .. autofunction:: boring_math.number_theory.is_prime
 
 .. autofunction:: boring_math.number_theory.primes

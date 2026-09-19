@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # Generate conf.py Sphinx configuration executable
 
-import sys
 import os
+import sys
 
 project_prefix = 'Boring Math'
 pypi_prefix = 'boring-math'
@@ -71,6 +71,13 @@ extensions = [
     'sphinx.ext.graphviz',
 ]
 
+autodoc_default_options = {{
+    'members': True,
+    'private-members': True,
+    'special-members': True,
+    'inherited-members': False,
+    'show-inheritance': True,
+}}
 autodoc_member_order = 'bysource'
 autoclass_content = 'class'
 autodoc_class_signature = 'separated'

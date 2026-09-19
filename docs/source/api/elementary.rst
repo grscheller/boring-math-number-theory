@@ -1,6 +1,8 @@
 Elementary functions
 ====================
 
+Integer functions of an elementary nature.
+
 .. autofunction:: boring_math.number_theory.gcd
 
 .. autofunction:: boring_math.number_theory.lcm

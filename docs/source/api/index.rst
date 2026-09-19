@@ -1,8 +1,13 @@
 boring_math.number_theory
 =========================
 
+.. automodule:: boring_math.number_theory
+    :no-members:
+    :ignore-module-all:
+    :no-index:
+
 .. toctree::
-    :caption: Elementary
+    :caption: Elementary Functions
 
     elementary
 

@@ -19,26 +19,27 @@
 
     - elementary functions
 
-      - **gcd(m, n)**: find greatest common denominator of m and n
-      - **lcm(m, n)**: find least common multiple of m and n
-      - **coprime(m, n)**: return tuple without common factors, preserve signs
-      - **iSqrt(n)**: find unique m such that m*m <= n < (m+1)*(m+1)
-      - **isSqr(n)**: true if n is a perfect square
+      - ``gcd(m, n)``- find greatest common denominator of ``m`` and ``n``
+      - ``lcm(m, n)``- find least common multiple of ``m`` and ``n``
+      - ``coprime(m, n)``- return tuple without common factors, preserve signs
+      - ``iSqrt(n)``- find unique ``m`` such that ``m*m <= n < (m+1)*(m+1)``
+      - ``isSqr(n)``- true if ``n`` is a perfect square
 
     - symbols
 
-      - **legendre_symbol(a, p)**: Legendre symbol (a/p) ∈ {-1, 0, 1} where p odd prime
-      - **jacobi_symbol(a, n)**: Jacobi symbol (a/n) ∈ {-1, 0, 1} where n positive odd integer
+      - ``legendre_symbol(a, p)``- Legendre symbol ``(a/p) ∈ {-1, 0, 1}`` where ``p`` odd prime
+      - ``jacobi_symbol(a, n)``- Jacobi symbol ``(a/n) ∈ {-1, 0, 1}`` where n positive odd integer
 
     - prime functions & generators
 
-      - **is_prime(n)**: true if n is a prime number
-      - **primes(n, m)**: generate primes n <= p <= m where m is optional
+      - ``is_prime(n)``- true if ``n`` is a prime number
+      - ``primes(n, m)``- generate primes ``n <= p <= m`` where ``m`` is optional
 
 """
 
 from collections.abc import Iterator
-from typing import cast, Final
+from typing import Final, cast
+
 from pythonic_fp.circulararray.auto import CA
 from pythonic_fp.iterables.folding import fold_left
 
@@ -65,15 +66,15 @@ def gcd(m: int, n: int, /) -> int:
 
         :param m: First int for gcd calculation.
         :param n: Second int for gcd calculation.
-        :returns: The gcd of the absolute values of m and n.
+        :returns: The gcd of the absolute values of ``m`` and ``n``.
 
         .. note::
 
-            - mathematically the gcd(0, 0) does not exist
+            - mathematically the ``gcd(0, 0)`` does not exist
 
-              - taking gcd(0, 0) = 1
+              - taking ``gcd(0, 0) = 1``
 
-                - Better choice than math.gcd(0, 0) = 0.
+                - Better choice than ``math.gcd(0, 0) = 0``.
                 - More mathematically justified.
                 - Eliminates lcm & coprime having to edge case test.
 
@@ -94,7 +95,7 @@ def lcm(m: int, n: int, /) -> int:
 
         :param m: First int for lcm calculation.
         :param n: Second int for lcm calculation.
-        :returns: The lcm of the absolute values of m and n.
+        :returns: The lcm of the absolute values of ``m`` and ``n``.
 
     """
     m //= gcd(m, n)
@@ -109,8 +110,8 @@ def coprime(m: int, n: int, /) -> tuple[int, int]:
 
         :param m: First int for coprime calculation.
         :param n: Second int for coprime calculation.
-        :returns: Coprimed values with original signs,
-                  also (0, 0) when n = m = 0.
+        :returns: The coprime values with original signs,
+                  also ``(0, 0)`` when ``n = m = 0``.
 
     """
     common = gcd(m, n)
@@ -124,8 +125,8 @@ def iSqrt(n: int, /) -> int:
         Takes the integer square root of a non-negative integer.
 
         :param n: Integer whose integer square root is to be found.
-        :returns: The unique m such that m*m <= n < (m+1)*(m+1)
-        :raises ValueError: if n < 0.
+        :returns: The unique ``m`` such that ``m*m <= n < (m+1)*(m+1)``
+        :raises ValueError: if ``n < 0``.
 
     """
     if n < 0:
@@ -156,7 +157,7 @@ def legendre_symbol(a: int, p: int) -> int:
     """
     .. admonition:: Legendre symbol
 
-        Calculate the Legendre Symbol (a/p) where p is an odd prime.
+        Calculate the Legendre Symbol ``(a/p)`` where ``p`` is an odd prime.
 
         :param a: any integer
         :param p: any prime ``p > 2``, does not check that ``p`` is actually prime
@@ -187,12 +188,12 @@ def jacobi_symbol(a: int, n: int) -> int:
     """
     .. admonition:: Jacobi symbol
 
-        Calculate the Jacobi symbol (a/n) where n is a positive odd integer.
+        Calculate the Jacobi symbol ``(a/n)`` where ``n`` is a positive odd integer.
 
         :param a: Any integer.
         :param n: Any positive odd integer.
-        :returns: The Jacobi Symbol (a/n) ∈ {-1, 0, 1}.
-        :raises ValueError: If n is not a positive odd integer.
+        :returns: The Jacobi Symbol ``(a/n) ∈ {-1, 0, 1}``.
+        :raises ValueError: If ``n`` is not a positive odd integer.
 
         .. note::
 
@@ -228,8 +229,8 @@ def primes_wilson(start: int = 2) -> Iterator[int]:
 
         Prime number generation using Wilson's Theorem.
 
-        :param start: First value to check, defaults to 2.
-        :yields: Prime numbers tarting from n.
+        :param start: First value to check, defaults to ``2``.
+        :yields: Prime numbers starting inclusively from ``start``.
 
         .. note::
 
@@ -275,9 +276,9 @@ def primes(start: int = 2, end: int | None = None) -> Iterator[int]:
     """
     .. admonition:: primes
 
-        Generate all primes p where start <= p <= end.
+        Generate all primes ``p`` where ``start <= p <= end``.
 
-        :param start: First value to check, defaults to 2.
+        :param start: First value to check, defaults to ``2``.
         :param end: Optional last value to check.
         :yields: All primes between start and end inclusive.
 
@@ -303,12 +304,17 @@ _fact23: int | None = None
 
 def is_prime(n: int, /) -> bool:
     """
-    .. admonition:: is prime
+    .. admonition:: is_prime
 
         Test if argument is a prime number, uses Wilson's Theorem.
 
         :param n: Integer to check if prime.
-        :returns: True only if n is prime.
+        :returns: True only if ``n`` is prime.
+
+        .. warning::
+
+            Not as performant as maintainer had hoped. Implementation
+            subject to change.
 
     """
     global _fact13
@@ -325,18 +331,14 @@ def is_prime(n: int, /) -> bool:
     if n > 23 and gcd(n, _prod23) > 1:
         return False
 
-    if n >= _prod13:
-        if _fact13 is None:
-            _fact13 = fold_left(range(2, _prod13 + 1), mult, 1)
-        if n >= _prod17:
-            if _fact17 is None:
-                _fact17 = fold_left(range(_prod13 + 1, _prod17 + 1), mult, _fact13)
-            if n >= _prod19:
-                if _fact19 is None:
-                    _fact19 = fold_left(range(_prod17 + 1, _prod19 + 1), mult, _fact17)
-                if n >= _prod23:
-                    if _fact23 is None:
-                        _fact23 = fold_left(range(_prod19 + 1, _prod23 + 1), mult, _fact19)
+    if n >= _prod13 and _fact13 is None:
+        _fact13 = fold_left(range(2, _prod13 + 1), mult, 1)
+    if n >= _prod17 and _fact17 is None:
+        _fact17 = fold_left(range(_prod13 + 1, _prod17 + 1), mult, cast(int, _fact13))
+    if n >= _prod19 and _fact19 is None:
+        _fact19 = fold_left(range(_prod17 + 1, _prod19 + 1), mult, cast(int, _fact17))
+    if n >= _prod23 and _fact23 is None:
+        _fact23 = fold_left(range(_prod19 + 1, _prod23 + 1), mult, cast(int, _fact19))
 
     if n < _prod13:
         return fold_left(range(2, n), mult, 1) % n == n - 1
@@ -348,4 +350,3 @@ def is_prime(n: int, /) -> bool:
         return fold_left(range(_prod19 + 1, n), mult, cast(int, _fact19)) % n == n - 1
     else:
         return fold_left(range(_prod23 + 1, n), mult, cast(int, _fact23)) % n == n - 1
-

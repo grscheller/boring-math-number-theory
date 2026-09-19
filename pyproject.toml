@@ -33,16 +33,30 @@ description = "Number theory library."
 
 [project.urls]
 Changelog = "https://github.com/grscheller/boring-math-number-theory/blob/main/CHANGELOG.md"
+Documentation ="https://grscheller.github.io/boring-math-number-theory/release/html/"
 Homepage = "https://grscheller.github.io/boring-math/"
 Source = "https://github.com/grscheller/boring-math-number-theory"
 
-[project.optional-dependencies]
+[dependency-groups]
+docs = [
+  "furo>=2025.12.19",
+  "sphinx>=9.1",
+]
+pub = [
+  "flit",
+]
 test = [
   "pytest>=8.4.1",
 ]
 
 [tool.flit.module]
 name = "boring_math.number_theory"
+
+[tool.flit.sdist]
+exclude = [
+  "docs/",
+  "tests/",
+]
 
 [tool.mypy]
 explicit_package_bases = true
@@ -60,6 +74,9 @@ testpaths = ["tests/"]
 [tool.ruff]
 target-version = "py314"
 
+[tool.ruff.lint]
+ignore = ["RUF022", "E741"]
+
 [tool.ruff.lint.flake8-quotes]
 docstring-quotes = "double"
 
@@ -68,7 +85,6 @@ docstring-quotes = "double"
   "E731",
   "C901",
 ]
-"**/*.py" = ["E741"]
 
 [tool.ruff.format]
 quote-style = "single"
