@@ -5,8 +5,8 @@
 #  - later needs to agree with pyproject.toml
 PROJECT_NAME = Number Theory
 PYPI_NAME = number-theory
-RELEASE_VERSION = 2.0.3
-DEVEL_VERSION = 2.0.4
+RELEASE_VERSION = 2.1.0
+DEVEL_VERSION = 2.1.1
 CUSTOM_VERSION = 0.0.0
 
 SPHINXOPTS ?=
