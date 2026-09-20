@@ -10,7 +10,7 @@ This PyPI project is part of the
 ## Description
 
 A collection of integer related functions for number theory. The
-beginnings of a number theory library. Emphasizing first principles.
+beginnings of a number theory library emphasizing first principles.
 
 ## Copyright and License
 
