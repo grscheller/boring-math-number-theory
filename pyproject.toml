@@ -4,9 +4,10 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = "boring-math-number-theory"
-version = "2.1.1"
+version = "2.1.2"
+description = "Number theory library."
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.12"  # syntactic floor: known to SyntaxError below this
 authors = [
   { name = "Geoffrey R. Scheller", email = "geoffrey@scheller.com" },
 ]
@@ -22,14 +23,13 @@ classifiers = [
   "Intended Audience :: Education",
   "License :: OSI Approved :: Apache Software License",
   "Operating System :: OS Independent",
-  "Programming Language :: Python :: 3.14",
+  "Programming Language :: Python :: 3.14",  # only versions which have past pytest
   "Typing :: Typed",
 ]
 dependencies = [
   "pythonic-fp-circulararray>=6.1.1",
   "pythonic-fp-iterables>=5.1.4",
 ]
-description = "Number theory library."
 
 [project.urls]
 Changelog = "https://github.com/grscheller/boring-math-number-theory/blob/main/CHANGELOG.md"
@@ -49,14 +49,19 @@ test = [
   "pytest>=8.4.1",
 ]
 
-[tool.flit.module]
-name = "boring_math.number_theory"
-
 [tool.flit.sdist]
 exclude = [
   "docs/",
   "tests/",
 ]
+
+[tool.flit.module]
+name = "boring_math.number_theory"
+
+[tool.pytest]
+addopts = ["-ra"]
+consider_namespace_packages = true
+testpaths = ["tests/"]
 
 [tool.mypy]
 explicit_package_bases = true
@@ -65,11 +70,6 @@ namespace_packages = true
 warn_redundant_casts = true
 warn_return_any = true
 warn_unused_configs = true
-
-[tool.pytest]
-addopts = ["-ra"]
-consider_namespace_packages = true
-testpaths = ["tests/"]
 
 [tool.ruff]
 target-version = "py314"
